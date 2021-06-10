@@ -1,1 +1,1 @@
-web: gunicorn herokudjango
+web: gunicorn herokudjango.wsgi
