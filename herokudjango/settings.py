@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4g^-_5hmd9^zghgtfwe!0@&)e_d@g9w5_@_c&0!4s-qu=87w6f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['djangoherokupush.herokuapp.com', '127.0.0.1']
 
@@ -126,3 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
