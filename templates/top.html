@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+   <link rel="stylesheet" href="{% static 'css/top.css' %}">
+{% endblock %}
+
+<!-- 追加のjs -->
+{% block js %}
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">今日の天気</h1>
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <form action="{% url 'form' %}" method="post" class="mt-5">
+          {% csrf_token %}
+          <label for="city" class="mr-1">場所を選んでください：</label>
+          <select name="city" class="custom-select">
+            <option value="">---</option>
+            <option value="Hakodate">函館</option>
+            <option value="Sendai">仙台</option>
+            <option value="Tokyo">東京</option>
+            <option value="Nagoya">名古屋</option>
+            <option value="Osaka">大阪</option>
+            <option value="Fukuoka">福岡</option>
+          </select>
+          <input type="submit" value="今日の天気を取得する" class="btn btn-secondary btn-lg px-4 me-sm-3">
+        </form>
+      </div>
+      <h1 class="mt-2">{{ city }}</h1>
+      <h1>{{ msg }}</h1>
+      <h1>{{ weather }}</h1>
+      <h1 class="temperature">{{ temperature }}℃</h1>
+      <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="weather_icon" class="weather_icon center-block" width="200" height="200">
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        {% if 'sunny' in weather %}
+        <img src="../static/images/weather_images/tenki_mark01_hare.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="200" height="200" loading="lazy">
+        {% elif 'clouds' in weather %}
+        <img src="../static/images/weather_images/tenki_mark05_kumori.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="200" height="200" loading="lazy">
+        {% elif 'rain' in weather %}
+        <img src="../static/images/weather_images/tenki_mark02_ame.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="200" height="200" loading="lazy">
+        {% elif 'haze' in weather %}
+        <img src="../static/images/weather_images/tenki_mark08_yuki.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="200" height="200" loading="lazy">
+        {% endif %}
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="../static/images/background_images/closet.jpg" class="d-block mx-lg-auto img-fluid" alt="closet_image" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        {% if temperature >= 24 %}
+        <h1 class="col-lg-10 fs-4">今日の服は半袖です。</h1>
+        {% elif 20 <= temperature < 24 %}
+          {% if weatherID == 800 %}
+          <h1 class="col-lg-10 fs-4">今日の服は半袖です。</h1>
+          {% else %}
+          <h1 class="col-lg-10 fs-4">今日の服は長袖です。</h1>
+          {% endif %}
+        {% elif temperature < 20 %}
+        <h1 class="col-lg-10 fs-4">今日の服は長袖です。</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">今日の朝ごはん</h1>
+        <p class="col-lg-10 fs-4">今日の朝ごはんはバナナです。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a type="button" href="{% url 'ClothingList' %}" class="btn btn-secondary btn-lg px-4 me-sm-3">服リストを編集する</a>
+<!--        <button type="button" class="btn btn-secondary btn-lg px-4 me-sm-3">朝ごはんリストを編集する(仮)</button>-->
+      </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+{% endblock content %}

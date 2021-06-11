@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action='' method='post'>{% csrf_token %}
+        {{ form.sleeve }}
+        {{ form.thick }}
+        {{ form.color }}
+    <input type='submit' value='update'>
+</form>
+
+<a href="{% url 'top' %}" type="button" class="btn btn-dark">ホーム画面へ</a>
+
+{% endblock content %}

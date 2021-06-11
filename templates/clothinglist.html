@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/clothinglist.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>服のリスト</h2>
+<div class="container">
+    <a href="{% url 'ClothingRegister' %}" class="btn btn-secondary mb-3" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
+
+    {% for item in object_list %}
+    <div class="card mt-4">
+  <h5 class="card-header">服の特徴</h5>
+  <div class="card-body">
+    <p class="card-text">袖の長さ：{{ item.sleeve }},　　生地の厚さ：{{ item.thick }},　　服の色： {{ item.color }},　　ブランド：{{ item.brand }}</p>
+    <a href="{% url 'ClothingUpdate' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面へ</a><a href="{% url 'ClothingDelete' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面へ</a>
+    <a href="{% url 'ClothingDetail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面へ</a>
+  </div>
+</div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}

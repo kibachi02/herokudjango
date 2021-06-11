@@ -1,0 +1,42 @@
+body {
+    background-image: url("../images/background_images/background_1.jpg");
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    /*height: 1200px;*/
+    margin: 0;
+}
+
+h1, h2, h3, p {
+    font-weight: 800;
+    color: #fff;
+    opacity: 0.8;
+}
+
+header {
+    padding-top: 50px;
+    height: 150px;
+    background-color: #696969;
+}
+
+footer {
+    background-color: rgba(105, 105, 105, 0.2);
+    color: #ffffff;
+    margin-top: 20px;
+    padding-top: 20px;
+    height: 300px;
+    width:100%;
+    bottom: 0;
+    font-size: 30px;
+}
+
+footer a {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.copyright {
+    padding-top: 10px;
+}
+

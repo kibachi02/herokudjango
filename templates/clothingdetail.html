@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>this is detail</h2>
+<div class="alert alert-success" role="alert">
+  袖の長さ：{{ object.sleeve }}
+</div>
+<div class="alert alert-success" role="alert">
+  生地の厚さ：{{ object.thick }}
+</div>
+<div class="alert alert-success" role="alert">
+  服の色：{{ object.color }}
+</div>
+
+
+{% endblock content %}

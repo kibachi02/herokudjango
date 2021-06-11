@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action='' method='post'>{% csrf_token %}
+    袖の長さ：{{ form.sleeve }}
+    生地の厚さ：{{ form.thick }}
+    服の色： {{ form.color }}
+    ブランド：{{ form.brand }}
+    <input type='submit' value='create'>
+</form>
+
+{% endblock content %}
