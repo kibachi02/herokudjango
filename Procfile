@@ -1,1 +1,1 @@
-web: gunicorn herokudjango.wsgi
+web: gunicorn herokudjango.wsgi --log-file -
