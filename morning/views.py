@@ -101,7 +101,7 @@ def form(request):
     if request.POST['city']:
 
         city = request.POST['city']
-        OpenWeatherAPI_Key = '7feb230a4725283679c5b5d20ab4dd52'
+        OpenWeatherAPI_Key = '取得したAPIKey'
         # 選択できるようにしたいけど、とりあえず東京で設定しておく
         API_URL = 'http://api.openweathermap.org/data/2.5/weather?q={q}&appid={key}&lang=ja'
 
