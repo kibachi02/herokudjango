@@ -1,6 +1,7 @@
-body {
-    background-image: url("../images/background_images/background_1.jpg");
+body.base_body {
+    background-image: url("../images/background_images/background_1.jpg")!important;
     background-size: cover;
+    background-color: #986334 !important;
     color: #fff;
     text-align: center;
     /*height: 1200px;*/

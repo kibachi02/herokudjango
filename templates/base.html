@@ -20,8 +20,9 @@
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
 
-
-
+    <!-- Custom styles for this template -->
+    <link href="heroes.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -37,11 +38,6 @@
         }
       }
     </style>
-
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-    <!-- Custom styles for this template -->
-    <link href="heroes.css" rel="stylesheet">
         <!--  追加のCSS  -->
         {% block css %}
         {% endblock %}
@@ -51,14 +47,14 @@
         {% block js %}
         {% endblock %}
     </head>
-    <body>
+    <body class="base_body">
     {% block header %}
-        <div class="px-4 py-5 my-5 text-center date">
+        <header class="px-4 py-5 my-5 text-center date">
             <h1 class="display-5 fw-bold pb-3">モーニングリーダー</h1>
             <h2 class="display-5 fw-bold" id="date"></h2>
             <div class="col-lg-6 mx-auto">
             </div>
-        </div>
+        </header>
   <div class="b-example-divider"></div>
     {% endblock header %}
 

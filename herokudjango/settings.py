@@ -1,9 +1,10 @@
+import os
 import os.path
 from pathlib import Path
-import django_heroku
+# import django_heroku
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 import morning.apps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -128,9 +129,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_DIRS = [
-    os.path.join(BASE_DIR, '../static'),
+STATICFILES_DIRS = [ BASE_DIR / 'static']
+
+STATIC_DIRS = (
+    [
+    os.path.join(BASE_DIR, 'static'),
 ]
+)
 
 # STATIC_ROOT = BASE_DIR / 'static'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
